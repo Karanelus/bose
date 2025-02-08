@@ -1,0 +1,44 @@
+@use "../utils/vars" as *;
+
+.content {
+  width: 100dvw;
+
+  @media (width < 1260px) {
+    --title-size: 2.5rem;
+  }
+
+  @media (width < 744px) {
+    --main-mb: 4rem;
+    --title-size: 2rem;
+  }
+
+  [data-title] {
+    text-align: center;
+    font-size: var(--title-size);
+    width: var(--container-title-w);
+    letter-spacing: -1.5px;
+  }
+
+  > *[class*="content"] {
+    margin-inline: auto;
+    margin-bottom: var(--main-mb);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: var(--container-px);
+    width: min(100%, 63.75rem);
+
+    @media (width >1260px) {
+      width: min(100%, calc(63.75rem + var(--container-px)));
+    }
+  }
+
+  img {
+    cursor: zoom-in;
+    transition: 0.3s ease;
+
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}
